@@ -1,0 +1,17 @@
+.container {
+    margin-top: 20px;
+
+}
+
+.list {
+    list-style: none;
+}
+
+.listItem {
+    padding: 20px;
+    background-color: #ddd;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    width: 300px;
+}

@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React, { useState } from 'react';
+
 import './App.css';
 
-function App() {
+import Input from './components/Input/Input';
+import List from './components/List/List';
+
+const App = () => {
+  const [dataList, setDataList] = useState([]);
+
+
+  const addListItem = (item) => {
+    const updatedDataList = [...dataList];
+    updatedDataList.push(item);
+    setDataList(updatedDataList);
+  }
+
+  const removeListItem = (index) => {
+    // index = 3
+    const updatedDataList = dataList.filter((item, i) => i !== index);
+       
+    setDataList(updatedDataList);    
+
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <>
+        <Input inputAdded={addListItem}  />
+        <List dataList={dataList} listItemRemved={removeListItem} />
+      </>
   );
 }
 
